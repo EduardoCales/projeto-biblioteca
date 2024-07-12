@@ -11,9 +11,7 @@
     <div class="livro-author">
         <span class="livro-author-item">
             <i class="fas fa-user">
-                {% if livro.author.first_name %}
-                    {{ livro.author.first_name }} {{ livro.author.last_name }}
-                {% endif %}
+                {{ livro.author.name }}
             </i>
         </span>
         <span class="livro-author-item">
