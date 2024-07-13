@@ -1,5 +1,6 @@
 <div class="livro livro-list-item">
     <div class="livro-image">
+        <a href="{% url "livros:livro" livro.id %}">
             <img src="{{ livro.cover.url }}" alt="">
         </a>
     </div>

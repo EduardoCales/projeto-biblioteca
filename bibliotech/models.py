@@ -15,9 +15,9 @@ class Category(models.Model):
 class Livro(models.Model):
     title = models.CharField(max_length=65)
     description = models.CharField(max_length=500)
-    slug = models.SlugField()
+    slug = models.SlugField(unique=True)
     cover = models.ImageField(upload_to='bibliotech/covers/%Y/%m/%d/')
-    quantidade = models.DecimalField(max_digits=15, decimal_places=2)
+    quantidade = models.CharField(max_length=15)
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, null=True
     )
