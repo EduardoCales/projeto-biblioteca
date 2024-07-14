@@ -34,7 +34,12 @@ def search(request):
 
     if not search_term:
         raise Http404
+    
+    livros = Livro.objects.filter(
+        title__icontains=search_term
+    ).order_by('-id')
 
     return render(request, 'bibliotech/pages/search.html', context={
-        'page_title': f'Search for "{search_term}" |'
+        'page_title': f'Search for "{search_term}" |',
+        'livros': livros,
     })

@@ -9,6 +9,8 @@
     <div class="main-content main-content-list container">
         {% for livro in livros %}
             {% include "bibliotech/partials/livro.html" %}
+            {% empty %}
+            <h1 class="title-container">Nada foi encontrado</h1>
         {% endfor %}
     </div>
 {% endblock conteudo %}
