@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Author(models.Model):
     name = models.CharField(max_length=65)
@@ -24,17 +25,16 @@ class Livro(models.Model):
     author = models.ForeignKey(
         Author, on_delete=models.SET_NULL, null=True
     )
-    """
-    user = models.ForenKey(
-        User, on_delete=models.SET_NULL, null=True)
-    """
 
     def __str__ (self):
         return self.title
     
-"""
 class Emprestimo(models.Model):
-    user = models.ForenKey(
+    usuario = models.ForeignKey(
         User, on_delete=models.SET_NULL, null=True)
-    data_retirada = models.DateTime()
-"""
+    data_retirada = models.DateTimeField()
+    data_devolucao = models.DateTimeField()
+    observacao = models.CharField(max_length=200)
+    
+    def __str__ (self):
+        return self.observacao
